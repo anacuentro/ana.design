@@ -26,14 +26,13 @@ body{
   margin-top: 15px;
   margin
 }
-nav{
+.nav {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   flex-direction: row;
   margin-bottom: 4rem;
-  bottom: 30px;
 }
 h1{
   font-weight: 700;
