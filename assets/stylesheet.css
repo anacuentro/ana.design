@@ -24,15 +24,17 @@ body{
 .main {
   display: block;
   margin-top: 15px;
-  margin
 }
-.nav {
-  align-items: center;
+.nav-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   flex-direction: row;
   margin-bottom: 4rem;
+}
+ul{
+  list-style: none;
+  padding: 0;
 }
 h1{
   font-weight: 700;
@@ -56,19 +58,26 @@ h3{
   margin-top: 0.1rem;
   margin-bottom: 0.1rem;
 }
+.job-title{
+  color: var(--blue);
+}
 p, span {
   font-size: 1.125rem;
+  font-weight: 300;
   line-height: 1.5;
   color: var(--gray);
   margin-top: 15px;
   margin-bottom: 30px;
 }
 a, a:visited {
+  color: var(--gray);
   display: inline-block;
   margin-inline-end: 0.5rem;
-  text-decoration: underline var(--blue);
-  color: var(--blue);
-
+  text-decoration-color: var(--blue);
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.15em;
+  font-weight: 500;
+  
 }
 a:focus,a:hover{
   /* Provide a fallback style for browsers that don't support :focus-visible */
@@ -98,15 +107,12 @@ article{
 article header {
   margin-block-end: 1em;
   padding-block: 0.1em;
-  border-bottom: 2px solid var(--gray-opac);
+  border-bottom: 1px solid var(--gray-opac);
 }
 article header > time {
   display: block;
   font-size: 1rem;
 } 
-article h3 a {
-  text-decoration: none;
-}
 .teaser-text{
   margin-bottom: 1rem;
 }
