@@ -61,7 +61,7 @@ h3{
 .job-title{
   color: var(--blue);
 }
-p, span {
+p, span, figcaption {
   font-size: 1.125rem;
   font-weight: 300;
   line-height: 1.5;
@@ -126,6 +126,10 @@ a#page {
  color: var(--gray);
  text-decoration: none;
 }
+a[aria-current="page"] {
+  text-decoration: none;
+  border-bottom: 3px solid currentColor;
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -139,4 +143,202 @@ a#page {
 }
 .copy{
   font-size: 1rem;
+}
+  /* ── Accordion component ── */
+  .accordion {
+    margin-top: 1rem;
+  }
+
+  .accordion-toggle {
+    all: unset;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--blue);
+    text-decoration: underline;
+    text-decoration-color: var(--blue);
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.15em;
+    margin-bottom: 0.5rem;
+  }
+
+  .accordion-toggle:focus-visible {
+    outline: 3px dashed var(--blue);
+    background-color: var(--yellow);
+    border-radius: 2px;
+  }
+
+  .accordion-toggle:hover,
+  .accordion-toggle:focus {
+    background-color: var(--yellow);
+  }
+
+  .accordion-toggle .icon {
+    display: inline-block;
+    transition: transform 0.25s ease;
+    font-style: normal;
+  }
+
+  .accordion-toggle[aria-expanded="true"] .icon {
+    transform: rotate(90deg);
+  }
+
+  .accordion-body {
+    display: none;
+    padding: 1.25rem 0 0.5rem 0;
+    border-top: 1px solid var(--gray-opac);
+    margin-top: 0.5rem;
+  }
+
+  .accordion-body.is-open {
+    display: block;
+    animation: fadeIn 0.2s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Section labels inside the accordion ── */
+  .project-section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 0.25rem;
+    margin-top: 1.25rem;
+    display: block;
+  }
+
+  .project-section-label:first-child {
+    margin-top: 0;
+  }
+
+  .accordion-body p {
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── Tag / badge ── */
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tag {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--gray);
+    background-color: var(--gray-opac);
+    border-radius: 100px;
+    padding: 0.2em 0.75em;
+    display: inline-block;
+    margin: 0;
+  }
+
+  /* ── Project number ── */
+  .project-number {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--blue);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+/* Link ocupando todo o card */
+.teaser-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Hover e focus iguais (consistência UX + acessibilidade) */
+.teaser-link:hover,
+.teaser-link:focus-visible {
+  background-color: var(--yellow);
+  outline: none;
+}
+
+/* Aplicar underline só no título */
+.teaser-link:hover h3,
+.teaser-link:focus-visible h3 {
+  text-decoration: underline;
+  text-decoration-color: var(--blue);
+  text-underline-offset: 0.2em;
+}
+
+/* Manter foco acessível forte */
+.teaser-link:focus-visible {
+  outline: 3px dashed var(--blue);
+}
+.teaser-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.teaser-link:hover,
+.teaser-link:focus-visible {
+  background-color: var(--yellow);
+}
+.project-list {
+  padding: 0;
+  margin: 0;
+}
+
+.project-list li {
+  list-style: none;
+}
+
+/* Imagem ocupa largura total do card */
+.teaser figure {
+  margin: 0 0 1rem 0;
+}
+
+.teaser img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px; /* opcional, mantém minimalismo */
+}
+/* Garante que imagens dentro do conteúdo ocupem toda largura */
+main figure {
+  margin: 0 0 1.5rem 0;
+}
+
+main figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* Listas dentro do conteúdo (páginas de projeto) */
+main ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Espaçamento entre itens */
+main li {
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+}
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+}
+
+.skip-link:focus {
+  top: 0;
 }
